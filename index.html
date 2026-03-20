@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grade Tracker</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
       :root {
         --color-text-primary: #1a1a1a;
@@ -14,19 +17,29 @@
         --color-border-tertiary: #e5e7eb;
         --border-radius-lg: 12px;
         --border-radius-md: 6px;
-        --font-sans: sans-serif;
+        --color-border-secondary: #d1d5db;
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
       }
-      body { background-color: var(--color-background-secondary); margin: 0; }
+      body { 
+        background-color: var(--color-background-secondary); 
+        margin: 0; 
+        color: var(--color-text-primary);
+      }
     </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module">
-      import React from "https://esm.sh/react";
-      import ReactDOM from "https://esm.sh/react-dom/client";
+
+    <script type="text/babel" data-type="module">
+      // Map the global React variables so your App.jsx can find them
+      window.React = React;
+      window.useState = React.useState;
+
+      // Import your code
       import App from "./App.jsx";
+
       const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(React.createElement(App));
+      root.render(<App />);
     </script>
   </body>
 </html>
