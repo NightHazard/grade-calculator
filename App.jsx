@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const SCHEMES = [
   { id: "A", label: "Scheme A", ww: 0.25, pt: 0.50, exam: 0.25 },
   { id: "B", label: "Scheme B", ww: 0.25, pt: 0.45, exam: 0.30 },
